@@ -1,0 +1,26 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Paired $t$-test results (NDCG@10) comparing each fusion strategy against B-RRF baseline. $n$ = number of queries. * = $p < 0.05$.}
+\label{tab:significance}
+\begin{tabular}{llrrrc}
+\toprule
+Dataset & Strategy & $t$ & $p$ & $n$ & Sig. \\
+\midrule
+TREC-COVID & A – Linear & +3.447 & 0.0012 & 50 & $*$ \\
+TREC-COVID & C – Conv. Rank & +0.780 & 0.4393 & 50 & – \\
+TREC-COVID & D – Learned & +3.869 & 0.0003 & 50 & $*$ \\
+TREC-COVID & E – Adaptive & +3.581 & 0.0008 & 50 & $*$ \\
+\midrule
+ArguAna & A – Linear & +12.247 & 0.0000 & 1406 & $*$ \\
+ArguAna & C – Conv. Rank & +9.903 & 0.0000 & 1406 & $*$ \\
+ArguAna & D – Learned & +8.604 & 0.0000 & 1406 & $*$ \\
+ArguAna & E – Adaptive & +9.664 & 0.0000 & 1406 & $*$ \\
+\midrule
+FiQA & A – Linear & +6.632 & 0.0000 & 648 & $*$ \\
+FiQA & C – Conv. Rank & +2.864 & 0.0043 & 648 & $*$ \\
+FiQA & D – Learned & +7.420 & 0.0000 & 648 & $*$ \\
+FiQA & E – Adaptive & +4.706 & 0.0000 & 648 & $*$ \\
+\bottomrule
+\end{tabular}
+\end{table}

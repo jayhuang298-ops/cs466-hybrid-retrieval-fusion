@@ -1,0 +1,18 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Dataset statistics. $^*$MS MARCO corpus sub-sampled to 500K documents via reservoir sampling for computational feasibility; used only for training and tuning, not for zero-shot evaluation.}
+\label{tab:datasets}
+\begin{tabular}{llllrrrl}
+\toprule
+Dataset & Domain & Split & Role & \#Corpus & \#Queries & \#Qrels & Relevance \\
+\midrule
+MS MARCO & Web / Q\&A & dev & Train \& Tune & 500K$^*$ & 6,980 & 7,437 & Binary (0/1) \\
+TREC-COVID & Biomedical & test & Eval (zero-shot) & 171,332 & 50 & 66,336 & Graded (0--2) \\
+ArguAna & Argument / Debate & test & Eval (zero-shot) & 8,674 & 1,406 & 1,406 & Binary (0/1) \\
+FiQA & Financial Q\&A & test & Eval (zero-shot) & 57,638 & 648 & 1,706 & Binary (0/1) \\
+\midrule
+\multicolumn{8}{l}{\textit{Notes: TREC-COVID has very dense relevance judgments (avg.\ 1,327 per query). ArguAna has exactly one relevant document per query. FiQA uses informal financial language.}} \\
+\bottomrule
+\end{tabular}
+\end{table}

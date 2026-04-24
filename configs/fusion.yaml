@@ -1,0 +1,62 @@
+# Fusion strategy hyperparameters
+# All grids are swept on MS MARCO dev only; best params are then frozen for cross-domain eval.
+
+strategy_a:
+  name: "Linear Interpolation"
+  alpha_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  alpha_fine_grid_step: 0.05   # for sensitivity figure
+  normalization: "minmax"      # per-query min-max normalization
+  missing_score: 0.0           # score for docs absent from one list (post-normalization)
+
+strategy_b:
+  name: "Reciprocal Rank Fusion (RRF)"
+  k_grid: [10, 30, 60, 100]
+  k_default: 60
+
+strategy_c:
+  name: "Convex Rank Combination"
+  beta_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  missing_rank: "last"         # missing docs get rank = N+1
+
+strategy_d:
+  name: "Learned Linear Fusion"
+  model: "LogisticRegression"
+  class_weight: "balanced"
+  cv_folds: 5
+  negatives_per_positive: 20
+  train_query_sample: 50000    # sample from MS MARCO train set
+  features:
+    - "bm25_raw"
+    - "bm25_norm"
+    - "dense_raw"
+    - "dense_norm"
+    - "bm25_rank_norm"
+    - "dense_rank_norm"
+    - "in_bm25_top100"
+    - "in_dense_top100"
+
+strategy_e:
+  name: "Query-Adaptive Fusion"
+  oracle_alpha_step: 0.05      # step for oracle alpha grid search during training
+  eval_alpha_step: 0.01        # finer step for Experiment 4 oracle upper bound
+  models:
+    primary: "RandomForestRegressor"
+    baseline: "Ridge"
+  rf_params:
+    n_estimators: 300
+    max_depth: 8
+    random_state: 42
+  ridge_params:
+    alpha: 1.0
+  alpha_clip: [0.0, 1.0]
+  query_features:
+    - "q_len"
+    - "mean_idf"
+    - "stopword_ratio"
+    - "is_question"
+    - "bm25_score_std"
+  # Bin boundaries for Experiment 3 query analysis
+  alpha_bins:
+    dense_dominant: [0.0, 0.3]
+    balanced: [0.3, 0.7]
+    sparse_dominant: [0.7, 1.0]

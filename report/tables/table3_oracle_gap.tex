@@ -1,0 +1,15 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Oracle upper bound (per-query best $\alpha$, step=0.01) vs best practical strategy (D-Learned) on NDCG@10. Gap = oracle $-$ best practical.}
+\label{tab:oracle}
+\begin{tabular}{lcccc}
+\toprule
+Dataset & Best Practical & D-Learned & Oracle & Gap \\
+\midrule
+TREC-COVID & 0.7653 & 0.8271 & \textbf{0.8863} & +0.1210 \\
+ArguAna & 0.4193 & 0.4446 & \textbf{0.4987} & +0.0795 \\
+FiQA & 0.3857 & 0.4194 & \textbf{0.4928} & +0.1071 \\
+\bottomrule
+\end{tabular}
+\end{table}

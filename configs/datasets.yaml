@@ -1,0 +1,46 @@
+# BEIR dataset registry
+base_url: "https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/{name}.zip"
+
+datasets:
+  msmarco:
+    name: "msmarco"
+    split: "dev"          # use dev set (6,980 queries) for tuning / training
+    train_split: "train"  # for Strategy D & E training labels
+    corpus_size: 500000   # sub-sampled from 8.84M for compute efficiency
+    corpus_size_full: 8840000
+    sample_note: "Corpus sampled to 500K; all dev-relevant docs guaranteed included."
+    description: "General web queries — training & development domain"
+    bm25_params:
+      k1: 0.9
+      b: 0.4
+
+  trec-covid:
+    name: "trec-covid"
+    split: "test"
+    corpus_size: 171000
+    description: "Biomedical — expected to favour BM25 (dense terminology)"
+    bm25_params:
+      k1: 0.9
+      b: 0.4
+
+  arguana:
+    name: "arguana"
+    split: "test"
+    corpus_size: 8670
+    description: "Counter-argument retrieval — expected to favour dense (low lexical overlap)"
+    bm25_params:
+      k1: 0.9
+      b: 0.4
+
+  fiqa:
+    name: "fiqa"
+    split: "test"
+    corpus_size: 57000
+    description: "Financial opinion QA — mixed domain"
+    bm25_params:
+      k1: 0.9
+      b: 0.4
+
+# Evaluation datasets (exclude msmarco from final cross-domain eval)
+eval_datasets: ["trec-covid", "arguana", "fiqa"]
+train_dataset: "msmarco"
