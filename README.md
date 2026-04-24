@@ -149,6 +149,12 @@ python scripts/12_generate_description_tables.py
 
 ---
 
+## AI Assistance Disclosure
+
+This project used **Claude (Anthropic)** for code scaffolding, boilerplate utilities, debugging assistance, and report generation scripts. All research design, fusion strategy formulations, feature engineering, experimental methodology, and analytical conclusions are the author's own work. See [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) for full details.
+
+---
+
 ## Dependencies
 
 Key packages (see `requirements.txt` for full list):
