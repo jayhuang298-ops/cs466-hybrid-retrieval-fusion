@@ -1,7 +1,7 @@
 # Hybrid Retrieval Fusion: A Systematic Comparison of Five Fusion Strategies
 
 **Course:** CS 466 — Information Retrieval, Johns Hopkins University  
-**Author:** Jian Huang   Qingchen Li 
+**Author:** Jian Huang    Qingchen Li 
 **Date:** April 2026
 
 ---
