@@ -1,0 +1,40 @@
+# ── Large data artifacts (not committed) ──────────────────────────────
+data/
+indexes/
+runs/
+fused_runs/
+logs/
+
+# ── Large model files ─────────────────────────────────────────────────
+models/bge-base-en-v1.5/
+models/bge*/
+models/models--BAAI*/
+# Keep small trained fusion models (< 5 MB total)
+!models/trained/
+!models/trained/*.pkl
+
+# ── Zip archives ──────────────────────────────────────────────────────
+*.zip
+
+# ── Python cache ──────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ── Jupyter ───────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+
+# ── macOS ─────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Secrets ───────────────────────────────────────────────────────────
+.env
+*.key
+
+# ── Claude internal ───────────────────────────────────────────────────
+.claude/

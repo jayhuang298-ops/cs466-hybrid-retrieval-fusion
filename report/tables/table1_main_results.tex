@@ -1,0 +1,22 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Zero-shot retrieval performance (NDCG@10 / MAP / R@100) across three BEIR datasets. Bold = best fusion strategy per column. $^\dagger$ = significantly better than B-RRF baseline ($p < 0.05$, paired $t$-test).}
+\label{tab:main_results}
+\begin{tabular}{l ccc ccc ccc}
+\toprule
+Strategy & \multicolumn{3}{c}{TREC-COVID} & \multicolumn{3}{c}{ArguAna} & \multicolumn{3}{c}{FiQA} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+ & NDCG@10 & MAP & R@100 & NDCG@10 & MAP & R@100 & NDCG@10 & MAP & R@100 \\
+\midrule
+BM25 (sparse) & 0.5947 & 0.1871 & 0.1091 & 0.2999 & 0.2076 & 0.9324 & 0.2361 & 0.1941 & 0.5395 \\
+Dense (BGE) & 0.7807 & 0.2581 & 0.1406 & 0.4558 & 0.3243 & 0.9929 & 0.4062 & 0.3471 & 0.7415 \\
+\midrule
+A – Linear Interp. & 0.8233$^\dagger$ & \textbf{0.3111} & \textbf{0.1555} & \textbf{0.4576}$^\dagger$ & 0.3241 & 0.9922 & 0.4194$^\dagger$ & \textbf{0.3574} & 0.7203 \\
+B – RRF & 0.7653 & 0.2936 & 0.1425 & 0.4193 & 0.2911 & 0.9886 & 0.3857 & 0.3193 & 0.7177 \\
+C – Convex Rank & 0.7807 & 0.2807 & 0.1406 & 0.4558$^\dagger$ & \textbf{0.3243} & \textbf{0.9929} & 0.4062$^\dagger$ & 0.3472 & 0.7415 \\
+D – Learned (LogReg) & \textbf{0.8271}$^\dagger$ & 0.1485 & 0.1403 & 0.4446$^\dagger$ & 0.3151 & 0.9822 & \textbf{0.4194}$^\dagger$ & 0.3545 & \textbf{0.7441} \\
+E – Adaptive (RF) & 0.8152$^\dagger$ & 0.3095 & 0.1543 & 0.4422$^\dagger$ & 0.3120 & 0.9886 & 0.4130$^\dagger$ & 0.3517 & 0.7213 \\
+\bottomrule
+\end{tabular}
+\end{table}

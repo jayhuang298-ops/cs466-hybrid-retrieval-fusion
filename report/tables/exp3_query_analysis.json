@@ -1,0 +1,92 @@
+{
+  "trec-covid": {
+    "static_ndcg": 0.8232631595361387,
+    "adaptive_ndcg": 0.8152441276691101,
+    "bins": {
+      "dense_dominant": {
+        "count": 46,
+        "mean_alpha": 0.05544886983570825,
+        "ndcg_delta": 0.004544052481195306,
+        "feat_means": {
+          "q_len": 8.717391014099121,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.3368912637233734,
+          "is_question": 0.52173912525177,
+          "bm25_score_std": 0.7932300567626953
+        }
+      },
+      "balanced": {
+        "count": 4,
+        "mean_alpha": 0.3552456598446419,
+        "ndcg_delta": -0.15249450187160343,
+        "feat_means": {
+          "q_len": 15.75,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.39220061898231506,
+          "is_question": 0.75,
+          "bm25_score_std": 0.6106804609298706
+        }
+      }
+    }
+  },
+  "arguana": {
+    "static_ndcg": 0.45759555394312534,
+    "adaptive_ndcg": 0.44224569500663924,
+    "bins": {
+      "dense_dominant": {
+        "count": 388,
+        "mean_alpha": 0.28026765106869445,
+        "ndcg_delta": -0.007688389558647859,
+        "feat_means": {
+          "q_len": 176.273193359375,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.4834910035133362,
+          "is_question": 0.025773195549845695,
+          "bm25_score_std": 18.918346405029297
+        }
+      },
+      "balanced": {
+        "count": 1018,
+        "mean_alpha": 0.3605084839361001,
+        "ndcg_delta": -0.018269947461634503,
+        "feat_means": {
+          "q_len": 200.13949584960938,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.39360859990119934,
+          "is_question": 0.0166994109749794,
+          "bm25_score_std": 26.078857421875
+        }
+      }
+    }
+  },
+  "fiqa": {
+    "static_ndcg": 0.41939704573066583,
+    "adaptive_ndcg": 0.41303793163096136,
+    "bins": {
+      "dense_dominant": {
+        "count": 599,
+        "mean_alpha": 0.05984726127468852,
+        "ndcg_delta": 0.0006319231500524697,
+        "feat_means": {
+          "q_len": 10.522537231445312,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.38307127356529236,
+          "is_question": 0.7629382014274597,
+          "bm25_score_std": 1.037569284439087
+        }
+      },
+      "balanced": {
+        "count": 49,
+        "mean_alpha": 0.36810604257109913,
+        "ndcg_delta": -0.09182097762224216,
+        "feat_means": {
+          "q_len": 16.040817260742188,
+          "mean_idf": 0.0,
+          "stopword_ratio": 0.48835986852645874,
+          "is_question": 1.0,
+          "bm25_score_std": 0.7597030997276306
+        }
+      }
+    }
+  }
+}

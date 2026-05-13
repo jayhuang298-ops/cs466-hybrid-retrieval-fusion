@@ -1,0 +1,26 @@
+# Base configuration — paths, seeds, device
+project_root: "."   # relative to project root; override with absolute path if needed
+
+seed: 42
+
+device: "mps"       # Apple Silicon: "mps" | "cpu" | "cuda"
+fp16: false         # MPS does not support autocast fp16 reliably; use fp32
+
+paths:
+  data:        "data/beir"
+  cache:       "data/cache"
+  indexes_bm25: "indexes/bm25"
+  indexes_dense: "indexes/dense"
+  runs_bm25:   "runs/bm25"
+  runs_dense:  "runs/dense"
+  fused_runs:  "fused_runs"
+  models:      "models"
+  trained:     "models/trained"
+  report:      "report"
+
+retrieval:
+  top_k: 1000          # documents retrieved per query
+
+logging:
+  level: "INFO"
+  file:  "logs/pipeline.log"

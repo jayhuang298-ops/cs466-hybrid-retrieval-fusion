@@ -1,0 +1,24 @@
+\begin{table}[ht]
+\centering
+\small
+\caption{Retrieval models and fusion strategies evaluated. Supervised strategies (D, E) are trained on MS MARCO dev and evaluated zero-shot on TREC-COVID, ArguAna, and FiQA.}
+\label{tab:models}
+\begin{tabular}{clllll}
+\toprule
+ID & Strategy & Type & Scoring Formula & Tunable Param & Notes \\
+\midrule
+— & BM25 & Baseline & $\text{BM25}(q,d)$ & — & Pyserini/Lucene; sparse lexical retrieval \\
+— & Dense (BGE) & Baseline & $\cos(\mathbf{q},\mathbf{d})$ & — & \texttt{BAAI/bge-base-en-v1.5}; semantic retrieval \\
+\midrule
+A & Linear Interpolation & Unsupervised & $(1{-}\alpha)\,\tilde{s}_\text{dense} + \alpha\,\tilde{s}_\text{BM25}$ & $\alpha$ & Min-max normalised per query; tuned on MS MARCO dev \\
+B & Reciprocal Rank Fusion & Unsupervised & $\sum_{r} \frac{1}{k + r_i(d)}$ & $k$ & Score-free; robust to score distribution differences \\
+C & Convex Rank Fusion & Unsupervised & $(1{-}\beta)\,\tilde{r}_\text{dense} + \beta\,\tilde{r}_\text{BM25}$ & $\beta$ & Rank-based interpolation; normalised rank scores \\
+\midrule
+D & Learned Fusion (LogReg) & Supervised & $\sigma(\mathbf{w}^\top \phi(q,d))$ & $\mathbf{w}$ & Logistic Regression; trained on MS MARCO dev qrels \\
+E & Query-Adaptive Fusion (RF) & Supervised & $\hat{\alpha}(q) = f_\theta(q)$ & $\theta$ & Per-query $lpha$ predicted by Random Forest; oracle $\alpha^*$ via grid-search on dev set \\
+\midrule
+\multicolumn{6}{l}{\textit{Query features for Strategy E: query length, mean IDF, stopword ratio, is-question flag, BM25 score std.}} \\
+\multicolumn{6}{l}{\textit{Features for Strategy D (pairwise): BM25/dense scores, rank diff, score diff, rank product, harmonic rank, score ratio, overlap.}} \\
+\bottomrule
+\end{tabular}
+\end{table}
