@@ -1,8 +1,6 @@
 # AI Assistance Disclosure
 
 **Course:** CS 466 — Information Retrieval, Johns Hopkins University  
-**Author:** Jay Huang  
-
 ---
 
 ## Statement
